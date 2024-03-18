@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Viewer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column; /* Added to align content vertically */
+        }
+
+        img {
+            cursor: pointer;
+        }
+
+        #imageContainer {
+            text-align: center;
+            margin-bottom: 20px; /* Added to create space between image and h1 */
+        }
+
+        #welcomeText {
+            display: none; /* Initially hide the h1 */
+        }
+    </style>
+</head>
+<body>
+<div id="imageContainer">
+    <img id="mainImage" src="image1.jpg" alt="Image 1" onclick="changeImage()">
+</div>
+
+<h1 id="welcomeText">HAHA!!</h1> <!-- Added an ID to the h1 element -->
+
+<script>
+    function changeImage() {
+        var mainImage = document.getElementById("mainImage");
+        var welcomeText = document.getElementById("welcomeText"); // Get the h1 element
+
+        // Check the current image source and replace it accordingly
+        if (mainImage.src.endsWith("image1.jpg")) {
+            mainImage.src = "image2.avif";
+        } else {
+            mainImage.src = "image1.jpg";
+        }
+
+        // Show the h1 element after the click
+        welcomeText.style.display = "block";
+
+        // Hide the h1 element after 3 seconds (3000 milliseconds)
+        setTimeout(function() {
+            welcomeText.style.display = "none";
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
